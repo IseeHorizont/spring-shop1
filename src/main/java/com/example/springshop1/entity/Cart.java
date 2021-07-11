@@ -67,4 +67,17 @@ public class Cart {
         this.order = order;
         return this;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cart cart = (Cart) o;
+        return Objects.equals(id, cart.id) && Objects.equals(user, cart.user) && Objects.equals(products, cart.products) && Objects.equals(order, cart.order);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, user, products, order);
+    }
 }
